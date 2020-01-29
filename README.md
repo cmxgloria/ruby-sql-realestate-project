@@ -26,6 +26,8 @@ Problem and challenge
 Also I could not get the users data even if I create test.rb , finally found it out that I have to run the ruby test.rb in the terminal then can store data successfully
 2. click link<a> then delete the whole image and name, check the  <a> link and erb to fix
 3. if results.count == 1 && BCrypt::Password.new(results[0]['password_digest']) == params[:password], originally put bracket in wrong place cause invalidHash at /login. Found out sql is string; BCrypt::Password.new(" ")
+4. can not get '/house/:id' if my code "sql = "select * from houses where id = $1;"
+  @house = run_sql(sql, [params[:id]]).first", should fix like this ""
           
 Lessons
 1. understand using grid for css 
