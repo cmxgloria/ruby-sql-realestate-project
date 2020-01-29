@@ -1,6 +1,6 @@
-<h1><%= @house['name']%>details</h1>
+<h1><%= @house['name']%> Details</h1>
 <a href="/houses/<%= @house['id']%>/edit">Edit</a>
-<form action="/houses/<%=@house['id']%>" method="post">
+<form action="/houses/<%= @house['id'] %>" method="post">
 <input type="hidden" name="_method" value="delete">
 <button>Sold</button>
 </form>

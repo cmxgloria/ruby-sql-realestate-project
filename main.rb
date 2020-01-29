@@ -32,9 +32,9 @@ get '/' do
 end
 
 # read houses
-get 'houses/:id' do
-  sql = "select * from houses where id = $1;"
-  @house = run_sql(sql, [params[:id]]).first
+get '/houses/:id' do
+  sql = "select * from houses where id = '#{params[:id]}';"
+  @house = run_sql(sql).first
   erb :details
 end
 
