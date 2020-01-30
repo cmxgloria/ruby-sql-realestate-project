@@ -2,7 +2,7 @@ body {
   background-image: url("https://cdn.hipwallpaper.com/i/73/53/5VONYG.jpg");
 }
 image_url {
-  width: 150px;
+  width: 100px;
 }
 p {
   font-size: 20px;
@@ -10,4 +10,16 @@ p {
 a {
   font-size: 20px;
   margin: auto;
+  color: black;
+}
+.house {
+  border: 2px solid black;
+}
+nav {
+  display: flex;
+  justify-content: center;
+}
+.each_house {
+  display: grid;
+  grid-template-areas: inherit;
 }

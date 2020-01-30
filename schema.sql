@@ -26,11 +26,6 @@ id SERIAL PRIMARY KEY,
   password_digest VARCHAR(400)
 );
 
--- INSERT INTO users (email, password_digest)
--- VALUES ('dt@ga.co', 'pudding');
-
--- INSERT INTO users (email, password_digest)
--- VALUES ('gloria@ga.co', 'cola');
 
 ALTER TABLE houses ADD COLUMN user_id INTEGER;
 

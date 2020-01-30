@@ -62,10 +62,10 @@ end
 
 # update
 patch '/houses/:id/edit' do
-  sql = "update houses set name = '#{params[:name]}', image_url = '#{params[:image_url]}', price = #{params[:price]}, address = '#{params[:address]}' where id = #{params[:id]};"
+  sql = "update * from houses set name = '#{params[:name]}', image_url = '#{params[:image_url]}', price = #{params[:price]}, address = '#{params[:address]}' where id = #{params[:id]};"
  run_sql(sql)
-#  erb :edit_house
-  redirect "/houses/#{params[:id]}"
+  #  erb :edit_house
+  # redirect "/houses/#{params[:id]}"
 end
 
 get '/login' do
