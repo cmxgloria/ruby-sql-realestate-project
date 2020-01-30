@@ -1,7 +1,5 @@
 # REALESTATE-APP PROJECT
 
-https://australia-dream-house.herokuapp.com/
-
 # Application Development Problems Challenges Lessons
 
 ## How to process the app
@@ -18,7 +16,11 @@ require 'pry'
 require 'pg'
 require 'bcrypt'
 require_relative 'models/house.rb'
+require_relative 'db/shared'
 enable :sessions
+
+Create different routes to login, create new house, update house, delete house, get unqiue house infromation
+Create different erb linked to the relative route
 
 ## Problem and challenge
 
@@ -29,6 +31,7 @@ enable :sessions
 4. can not get '/house/:id' if my code "sql = "select \* from houses where id = \$1;"
    @house = run_sql(sql, [params[:id]]).first", should fix like this "@house = run_sql(sql).first"
 5. can not add new house, wrote wrong current_user[:user_id], fixed it to current_user[:id]
+6. understand more details about sql and CRUD and how to use crab hand in ruby
 
 ## Lessons
 
