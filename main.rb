@@ -2,7 +2,8 @@
 require 'sinatra'
 require 'pg'
 require 'bcrypt'
-require_relative 'models/house.rb'
+require_relative 'models/house'
+require_relative 'db/shared'
 enable :sessions
 
 if development?   #only run the code in development
@@ -21,13 +22,6 @@ end
 
 def current_user
   run_sql("select * from users where id = #{session[:user_id]};")[0]
-end
-
-def run_sql(sql, args = [])
-  conn = PG.connect(dbname: 'realestate_app')
-  results = conn.exec_params(sql, args)
-  conn.close
-  return results
 end
 
 get '/' do
