@@ -1,11 +1,15 @@
      
 require 'sinatra'
-require 'sinatra/reloader'
-require 'pry'
 require 'pg'
 require 'bcrypt'
 require_relative 'models/house.rb'
 enable :sessions
+
+if development?   #only run the code in development
+  require 'sinatra/reloader'
+  require 'pry'
+  also_reload
+end
 
 def logged_in?
   if session[:user_id]
@@ -38,6 +42,21 @@ get '/houses/:id' do
   erb :details
 end
 
+# edit
+get '/houses/:id/edit' do
+  sql = "select * from houses where id = #{params[:id]};"
+  @house = run_sql(sql)[0]
+  erb :edit_house
+end
+
+# update
+patch '/houses/:id' do
+  sql = "update * from houses set name = '#{params[:name]}', image_url = '#{params[:image_url]}', price = #{params[:price]}, address = '#{params[:address]}' where id = #{params[:id]};"
+ run_sql(sql)
+ erb :edit_house
+  # redirect "/houses/#{params[:id]}"
+end
+
 get '/houses/new' do
   erb :new_house
 end
@@ -50,26 +69,13 @@ post '/houses' do
   redirect '/'
 end
 
-# edit
-get '/houses/:id/edit' do
-  sql = "select * from houses where id = #{params[:id]};"
-  @house = run_sql(sql)[0]
-  erb :edit_house
-end
-
-# update
-patch '/houses/:id' do
-  sql = "update * from houses set name = '#{params[:name]}', image_url = '#{params[:image_url]}', price = '#{params[:price]}', address = '#{params[:address]}' where id = #{params[:id]};"
- run_sql(sql)
-  redirect '/houses/#{params[:id]'
-end
 
 # delete sold house
-# get '/houses/:id' do
-#   sql = "delete from houses where id = #{params[:id]};"
-#   run_sql(sql)
-#   redirect '/'
-# end
+delete '/houses/:id' do
+  sql = "delete from houses where id = #{params[:id]};"
+  run_sql(sql)
+  redirect '/'
+end
 
 get '/login' do
   erb :login

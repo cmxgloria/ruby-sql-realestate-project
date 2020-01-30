@@ -1,12 +1,12 @@
 <h1>Edit house</h1>
-<form action="/houses/<%= @house['id']%>" method="post">
+<form action="/houses/<%= @house['id'] %>/edit" method="post">
   <input type="hidden" name="_method" value="patch">
   <label for="">name</label>
   <input type="text" name="name" value="<%= @house['name'] %>">
   <label for="">image_url</label>
   <input type="text" name="image_url" value="<%= @house['image_url'] %>">
   <label for="">price</label>
-  <input type="text" name="price" value="<%= @house['price']%>">
+  <input type="number" name="price" value="<%= @house['price'] %>">
   <label for="">address</label>
   <input type="text" name="address" value="<%= @house['address']%>">
   <button>Update</button>
