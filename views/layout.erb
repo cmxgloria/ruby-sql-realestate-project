@@ -8,6 +8,7 @@
 </head>
 <body>
   <% if logged_in? %>
+  <%= current_user[:id] %>
     <%= current_user['email'] %>
     <form action="/session" method="post">
       <input type="hidden" name="_method" value="delete">

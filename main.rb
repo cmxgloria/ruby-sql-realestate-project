@@ -23,17 +23,34 @@ end
 def current_user
   run_sql("select * from users where id = #{session[:user_id]};")[0]
 end
-
+# all route
 get '/' do
   @results = run_sql("select * from houses order by name asc;")
   erb :index
 end
-
+# have to move up, if down route name match then it run this route '/houses/:id'
+get '/houses/new' do
+  erb :new_house
+end
+# create new house
+post '/houses/new' do
+  redirect '/login' unless logged_in?
+  sql = "insert into houses (name, image_url, price, address) values ('#{params[:name]}', '#{params[:image_url]}', '#{params[:price]}','#{params[:address]}');"
+  run_sql(sql)
+ redirect '/'
+end
 # read houses
 get '/houses/:id' do
   sql = "select * from houses where id = '#{params[:id]}';"
   @house = run_sql(sql).first
   erb :details
+end
+
+# delete sold house
+delete '/houses/:id' do
+  sql = "delete from houses where id = #{params[:id]};"
+  run_sql(sql)
+  redirect '/'
 end
 
 # edit
@@ -44,31 +61,11 @@ get '/houses/:id/edit' do
 end
 
 # update
-patch '/houses/:id' do
-  sql = "update * from houses set name = '#{params[:name]}', image_url = '#{params[:image_url]}', price = #{params[:price]}, address = '#{params[:address]}' where id = #{params[:id]};"
+patch '/houses/:id/edit' do
+  sql = "update houses set name = '#{params[:name]}', image_url = '#{params[:image_url]}', price = #{params[:price]}, address = '#{params[:address]}' where id = #{params[:id]};"
  run_sql(sql)
- erb :edit_house
-  # redirect "/houses/#{params[:id]}"
-end
-
-get '/houses/new' do
-  erb :new_house
-end
-
-# create new house
-post '/houses' do
-  redirect '/login' unless logged_in?
-  sql = "insert into houses (name, image_url, price, address) values ('#{params[:name]}', '#{params[:image_url]}', '#{params[:price]}','#{params[:address]}', #{current_user[:user_id]});"
-  run_sql(sql)
-  redirect '/'
-end
-
-
-# delete sold house
-delete '/houses/:id' do
-  sql = "delete from houses where id = #{params[:id]};"
-  run_sql(sql)
-  redirect '/'
+#  erb :edit_house
+  redirect "/houses/#{params[:id]}"
 end
 
 get '/login' do

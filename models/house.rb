@@ -6,17 +6,14 @@ def run_sql(sql, args = [])
   conn.close
   return results 
 end
-def create_dish(name, image_url,user_id)
-    # sql = "insert into dishes (name, image_url,user_id)"
-    # sql += "values ('#{params[:name]}', '#{params[:image_url]}', #{current_user[:user_id]});"
-
-    # another way if got more lines, can seperate like this
-    sql = <<~SQL 
-    insert into dishes (name, image_url, price, address, user_id)
-    values ($1, $2, $3, $4, $5);
-    SQL
-    run_sql(sql,[name, image_url, price, address, user_id])
+def create_house(name, image_url, price, addressuser_id)
+  sql = <<~SQL 
+  insert into dishes (name, image_url, price, address, user_id)
+  values ($1, $2, $3, $4, $5);
+  SQL
+  run_sql(sql,[name, image_url, price, address, user_id])
 end
+
 # use this way to create house in terminal
 
 def all_houses()

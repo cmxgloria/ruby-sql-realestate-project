@@ -1,8 +1,11 @@
-## REALESTATE-APP PROJECT
+# REALESTATE-APP PROJECT
 
-Application Development Problems Challenges Lessons
+https://australia-dream-house.herokuapp.com/
 
-How to process the app
+# Application Development Problems Challenges Lessons
+
+## How to process the app
+
 Ultilize Ruby and SQL program languages
 Create database realestate_app, create houses and users tables and create schema.sql records
 Use sinatra new realestate_app -va to generate the boilerplate folders and files
@@ -17,21 +20,21 @@ require 'bcrypt'
 require_relative 'models/house.rb'
 enable :sessions
 
-Problem and challenge
+## Problem and challenge
 
 1. how to insert email and password into database, try to hardcode store in database but could not get the password with digest which can not log in. So I created test.rb and insert "sql = "INSERT INTO users(email, password_digest) VALUES ('#{email}','#{digest_password.to_s}');" to database and also use bcrypt "digest_password = BCrypt::Password.create(password)";
    Also I could not get the users data even if I create test.rb , finally found it out that I have to run the ruby test.rb in the terminal then can store data successfully
 2. click link<a> then delete the whole image and name, check the <a> link and erb to fix
 3. if results.count == 1 && BCrypt::Password.new(results[0]['password_digest']) == params[:password], originally put bracket in wrong place cause invalidHash at /login. Found out sql is string; BCrypt::Password.new(" ")
 4. can not get '/house/:id' if my code "sql = "select \* from houses where id = \$1;"
-   @house = run_sql(sql, [params[:id]]).first", should fix like this ""
+   @house = run_sql(sql, [params[:id]]).first", should fix like this "@house = run_sql(sql).first"
+5. can not add new house, wrote wrong current_user[:user_id], fixed it to current_user[:id]
 
-Lessons
+## Lessons
 
-1. understand using grid for css
-   2.learned how to use the routes and how to connect the mian.rb and some erb to how to display on url oand learned basic struture of the whole project, break into different functions  
-   3.learned how to use sinatra to find out the errors and tried to fix them; learn to pay attention to details
-2. learned how to use the heroku to deply as website
+1.learned how to use the routes and how to connect the mian.rb and some erb to how to display on url oand learned basic struture of the whole project, break into different functions  
+2.learned how to use sinatra to find out the errors and tried to fix them; learn to pay attention to details
+3.learned how to use the heroku to deply as website, create shared.rb in db file to share with other files, in main.rb need to require_relative 'db/shared'. learned the relation between my local repositories and github and heroku, learn how to git push heroku master
 
 ```
 
