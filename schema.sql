@@ -21,7 +21,7 @@ INSERT INTO houses(name, image_url, price, address)
 VALUES ('Footscray','https://i2.au.reastatic.net/800x600/b2112f7f811d1f66b3c2a9c333108803ecd475219eb5b4d79319256d06a3d371/image.jpg',790000,'6 Souter Crescent Footscray Vic 3011');
 
 CREATE TABLE users (
-id SERIAL PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
   email VARCHAR(300),
   password_digest VARCHAR(400)
 );

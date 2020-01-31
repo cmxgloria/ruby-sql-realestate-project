@@ -31,7 +31,8 @@ Create different erb linked to the relative route
 4. can not get '/house/:id' if my code "sql = "select \* from houses where id = \$1;"
    @house = run_sql(sql, [params[:id]]).first", should fix like this "@house = run_sql(sql).first"
 5. can not add new house, wrote wrong current_user[:user_id], fixed it to current_user[:id]
-6. understand more details about sql and CRUD and how to use crab hand in ruby
+6. can not store add house in my ideal house, fixed to insert user_id values '#{session[:user_id]}' in route post '/houses/new'
+7. understand more details about sql and CRUD and how to use crab hand in ruby
 
 ## Lessons
 

@@ -35,9 +35,10 @@ end
 # create new house
 post '/houses/new' do
   redirect '/login' unless logged_in?
-  sql = "insert into houses (name, image_url, price, address) values ('#{params[:name]}', '#{params[:image_url]}', '#{params[:price]}','#{params[:address]}');"
+  sql = "insert into houses (name, image_url, price, address, user_id) values ('#{params[:name]}', '#{params[:image_url]}', '#{params[:price]}','#{params[:address]}', '#{session[:user_id]}');"
   run_sql(sql)
  redirect '/'
+ 
 end
 # read houses
 get '/houses/:id' do
@@ -62,10 +63,9 @@ end
 
 # update
 patch '/houses/:id/edit' do
-  sql = "update * from houses set name = '#{params[:name]}', image_url = '#{params[:image_url]}', price = #{params[:price]}, address = '#{params[:address]}' where id = #{params[:id]};"
- run_sql(sql)
-  #  erb :edit_house
-  # redirect "/houses/#{params[:id]}"
+  sql = "update houses set name = '#{params[:name]}', image_url = '#{params[:image_url]}', price = #{params[:price]}, address = '#{params[:address]}' where id = #{params[:id]};"
+  run_sql(sql)
+  redirect "/houses/#{params[:id]}"
 end
 
 get '/login' do
