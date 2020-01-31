@@ -32,11 +32,12 @@ Create different erb linked to the relative route
    @house = run_sql(sql, [params[:id]]).first", should fix like this "@house = run_sql(sql).first"
 5. can not add new house, wrote wrong current_user[:user_id], fixed it to current_user[:id]
 6. can not store add house in my ideal house, fixed to insert user_id values '#{session[:user_id]}' in route post '/houses/new'
-7. understand more details about sql and CRUD and how to use crab hand in ruby
+7. need to run test.rb to store users details, especailly password_digest in the database
+8. understand more details about sql and CRUD and how to use crab hand in ruby
 
 ## Lessons
 
-1.learned how to use the routes and how to connect the mian.rb and some erb to how to display on url oand learned basic struture of the whole project, break into different functions  
+1.learned how to use the routes and how to connect the mian.rb and some erb to how to display on url and learned basic struture of the whole project, break into different functions  
 2.learned how to use sinatra to find out the errors and tried to fix them; learn to pay attention to details
 3.learned how to use the heroku to deply as website, create shared.rb in db file to share with other files, in main.rb need to require_relative 'db/shared'. learned the relation between my local repositories and github and heroku, learn how to git push heroku master
 

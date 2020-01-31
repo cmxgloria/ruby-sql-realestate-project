@@ -35,10 +35,11 @@ end
 # create new house
 post '/houses/new' do
   redirect '/login' unless logged_in?
+  # insert user_id value #{session[:user_id]} to store new house in database and display on my_house route
   sql = "insert into houses (name, image_url, price, address, user_id) values ('#{params[:name]}', '#{params[:image_url]}', '#{params[:price]}','#{params[:address]}', '#{session[:user_id]}');"
   run_sql(sql)
  redirect '/'
- 
+
 end
 # read houses
 get '/houses/:id' do
