@@ -1,4 +1,6 @@
 <h1>My Ideal Houses</h1>
 <% @houses.each do |house| %>
 <p><%= house['name'] %></p>
+<p>$ <%= house['price'] %></p>
+<img src="<%= house['image_url'] %>" alt="">
 <% end%>
