@@ -1,9 +1,31 @@
 body {
-  background-image: url("https://cdn.hipwallpaper.com/i/73/53/5VONYG.jpg");
+  background-image: url("https://images.freecreatives.com/wp-content/uploads/2016/02/Light-Blue-Background-For-Free-Download1.jpg");
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-image_url {
-  width: 100px;
+.content {
+  margin-bottom: 30px;
 }
+.logo_wrapper {
+  text-align: center;
+}
+.house_img {
+  width: 100%;
+  max-width: 700px;
+  padding: 20px;
+}
+.logo {
+  max-width: 300px;
+  padding: 20px;
+}
+.image_link:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
 p {
   font-size: 20px;
 }
@@ -13,13 +35,19 @@ a {
   color: black;
 }
 .house {
-  border: 2px solid black;
+  display: grid;
+  justify-items: center;
+  border-radius: 15px;
+  border: 2px solid #bbb;
+  margin-bottom: 40px;
 }
 nav {
+  margin: 40px 0;
   display: flex;
   justify-content: center;
 }
 .each_house {
   display: grid;
   grid-template-areas: inherit;
+  justify-items: center;
 }

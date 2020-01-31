@@ -7,6 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+<div class="logo_wrapper">
+  <a href="https://www.realestate.com.au/buy">
+  <img class="logo" src="https://i.pinimg.com/originals/38/35/78/3835786416c9f4c6f09399d665415e2d.gif" alt="Australian live here"/>
+  </a>
+  </div>
   <% if logged_in? %>
   <%= current_user[:id] %>
     <%= current_user['email'] %>
@@ -20,7 +25,9 @@
     <a href="/houses/new">Add More Properties</a>
     <a href="/my_house">My Ideal Houses</a>
   </nav>
-  <%= yield %>
+  <div class="content">
+    <%= yield %>
+  </div>
 
 </body>
 </html>

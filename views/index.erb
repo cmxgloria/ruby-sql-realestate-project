@@ -1,12 +1,12 @@
-<a href="https://www.realestate.com.au/buy">
-<img src="https://s1.rui.au.reastatic.net/rui-static/img/rea-logo-thin-white-v3.png" alt="realestate.com.au Australian live here"></a>
-<div class="each_house">
 <% @results.each do |house| %>
-<img src="<%= house['image_url'] %>" alt="">
-<h2>
-<a href="/houses/<%= house['id'] %>">
-<%= house['name'] %>
-</a>
-</h2>
-</div>
+  <div class="each_house">
+    <h2>
+      <a href="/houses/<%= house['id'] %>">
+        <%= house['name'] %>
+      </a>
+    </h2>
+    <a class="image_link" href="/houses/<%= house['id'] %>">
+      <img class="house_img" src="<%= house['image_url'] %>" alt="">
+    </a>
+  </div>
 <%end%>

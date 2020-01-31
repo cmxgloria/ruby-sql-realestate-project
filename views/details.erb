@@ -8,7 +8,6 @@
 <P>Location: <%= @house['name'] %></P>
 <P>Address: <%= @house['address'] %></P>
 <P>Estimated Price: $<%= @house['price'] %></P>
-<P>Image Link: <%= @house['image_url'] %></P>
-<img src="<%= @house['image_url'] %>" alt="">
+<img class="house_img" src="<%= @house['image_url'] %>" alt="<%= @house['address'] %>">
 </div>
 
