@@ -2,5 +2,5 @@
 <% @houses.each do |house| %>
 <p><%= house['name'] %></p>
 <p>$ <%= house['price'] %></p>
-<img src="<%= house['image_url'] %>" alt="">
+<img src="<%= house['image_url'] %>" alt="<%= house['name']%>">
 <% end%>

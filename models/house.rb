@@ -8,7 +8,7 @@ def run_sql(sql, args = [])
 end
 def create_house(name, image_url, price, address, user_id)
   sql = <<~SQL 
-  insert into dishes (name, image_url, price, address, user_id)
+  insert into houses (name, image_url, price, address, user_id)
   values ($1, $2, $3, $4, $5);
   SQL
   run_sql(sql,[name, image_url, price, address, user_id])
