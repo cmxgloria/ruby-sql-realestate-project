@@ -6,7 +6,7 @@ def run_sql(sql, args = [])
   conn.close
   return results 
 end
-def create_house(name, image_url, price, addressuser_id)
+def create_house(name, image_url, price, address, user_id)
   sql = <<~SQL 
   insert into dishes (name, image_url, price, address, user_id)
   values ($1, $2, $3, $4, $5);
@@ -20,10 +20,10 @@ def all_houses()
   run_sql("select * from houses;")
 end
 
-def find_fish_by_id()
+def find_house_by_id()
 end
 
-def delete_dish()
+def delete_house()
 end
 
 
