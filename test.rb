@@ -8,7 +8,7 @@ email = 'dt@ga.co'
 password = 'pudding'
 email = 'gloria@ga.co'
 password = 'cola'
-
+# create digest password to store in database
 digest_password = BCrypt::Password.create(password)
 sql = "INSERT INTO users(email, password_digest) VALUES ('#{email}','#{digest_password.to_s}');"
 conn.exec(sql)
